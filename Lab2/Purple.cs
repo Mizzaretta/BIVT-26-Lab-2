@@ -13,6 +13,11 @@ namespace Lab2
 
             // code here
 
+            while (n-- > 0)
+            {
+                answer += (p + (n) * h) * (p + (n) * h);
+            }
+
             // end
 
             return answer;
@@ -23,6 +28,13 @@ namespace Lab2
             int remainder = 0;
 
             // code here
+
+            while (a >= b)
+            {
+                a -= b;
+                quotient++;
+            }
+            remainder = a;
 
             // end
 
