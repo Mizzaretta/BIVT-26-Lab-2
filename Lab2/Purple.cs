@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-
-namespace Lab2
+﻿namespace Lab2
 {
     public class Purple
     {
-        const double E = 0.0001;
+        private const double E = 0.0001;
+
         public int Task1(int n, int p, int h)
         {
             int answer = 0;
@@ -22,7 +19,8 @@ namespace Lab2
 
             return answer;
         }
-        public (int quotient, int remainder)  Task2(int a, int b)
+
+        public (int quotient, int remainder) Task2(int a, int b)
         {
             int quotient = 0;
             int remainder = 0;
@@ -40,16 +38,35 @@ namespace Lab2
 
             return (quotient, remainder);
         }
+
         public double Task3()
         {
             double answer = 0;
 
             // code here
 
+            double TargetEpsilon = 0.0001;
+
+            int numeratorPresent = 3;
+            int denominatorPresent = 2;
+            int numeratorPast = 2;
+            int denominatorPast = 1;
+
+            while (Math.Abs(((double)numeratorPresent / denominatorPresent) - ((double)numeratorPast / denominatorPast)) >= TargetEpsilon)
+            {
+                numeratorPresent += numeratorPast;
+                denominatorPresent += denominatorPast;
+                numeratorPast = numeratorPresent - numeratorPast;
+                denominatorPast = denominatorPresent - denominatorPast;
+            }
+
+            answer = (double)numeratorPresent / denominatorPresent;
+
             // end
 
             return answer;
         }
+
         public int Task4(double b, double q)
         {
             int answer = 0;
@@ -60,6 +77,7 @@ namespace Lab2
 
             return answer;
         }
+
         public int Task5(int a, int b)
         {
             int answer = 0;
@@ -70,6 +88,7 @@ namespace Lab2
 
             return answer;
         }
+
         public long Task6()
         {
             long answer = 0;
@@ -91,6 +110,7 @@ namespace Lab2
 
             return answer;
         }
+
         public (double SS, double SY) Task8(double a, double b, double h)
         {
             double SS = 0;
