@@ -45,7 +45,7 @@
 
             // code here
 
-            double TargetEpsilon = 0.0001;
+            const double TargetEpsilon = 0.0001;
 
             int numeratorPresent = 3;
             int denominatorPresent = 2;
@@ -72,7 +72,14 @@
             int answer = 0;
 
             // code here
+            const double TargetEpsilon = 0.0001;
+            double num = 0;
 
+            do
+            {
+                num =  Math.Abs(b * Math.Pow(q, answer));
+                answer++;
+            } while (num > TargetEpsilon);
             // end
 
             return answer;
@@ -83,7 +90,19 @@
             int answer = 0;
 
             // code here
+            long number = a;
 
+            while (b > 0)
+            {
+                number *= b;
+                b--;
+            }
+
+            while (number >= 10)
+            {
+                number /= 10;
+                answer++;
+            }
             // end
 
             return answer;
