@@ -73,13 +73,21 @@
 
             // code here
             const double TargetEpsilon = 0.0001;
-            double num = 0;
+            double exp = q;
 
-            do
+            for (int i = 2; ; i++)
             {
-                num =  Math.Abs(b * Math.Pow(q, answer));
-                answer++;
-            } while (num > TargetEpsilon);
+
+                b *= q;
+
+                if (Math.Abs(b) < TargetEpsilon)
+                {
+                    Console.WriteLine(b);
+
+                    answer = i;
+                    break;
+                }
+            }
             // end
 
             return answer;
@@ -113,6 +121,18 @@
             long answer = 0;
 
             // code here
+            ulong seeds = 0;
+            ulong seedSquare = 1;
+            const int n = 64;
+
+            for (int i = 0; i < n; i++)
+            {
+                seedSquare *= 2;
+                Console.WriteLine(seedSquare);
+                seeds += seedSquare;
+            }
+
+            answer = (long)(seeds / 15000000);
 
             // end
 
@@ -125,6 +145,20 @@
 
             // code here
 
+            double target = S * 2;
+            double Income = 0;
+
+            while (S > 0 && S <= target)
+            {
+                if (answer == 0 || answer % 12 == 0)
+                {
+                    Income = S * d / 100;
+                }
+
+                S += Income / 12;
+                answer++;
+
+            }
             // end
 
             return answer;
